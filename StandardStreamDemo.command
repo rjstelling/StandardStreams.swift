@@ -18,7 +18,7 @@ protocol StandardStream {
 }
 
 /// Default implementations of print(...) and output(...)
-extension StandardStreamConvertible {
+extension StandardStream {
 
 	func print(_ str: String) {
 	
@@ -32,13 +32,13 @@ extension StandardStreamConvertible {
 }
 
 // Standard Out - writes to `stdout`
-struct StandardOut: StandardStreamConvertible {
+struct StandardOut: StandardStream {
 	
 	var stream: FileHandle { return FileHandle.standardOutput }
 }
 
 // Standard Error - writes to `stderr`
-struct StandardErr: StandardStreamConvertible {
+struct StandardErr: StandardStream {
 
 	var stream: FileHandle { return FileHandle.standardError }
 }
